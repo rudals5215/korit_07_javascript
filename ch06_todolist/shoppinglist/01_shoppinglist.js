@@ -7,12 +7,13 @@ const shoppingList = document.getElementById('shopping-list');
 const shoppingItems = JSON.parse(localStorage.getItem('shopping-items')) || [];
 
 function renderShoppingList() {
-  shoppingList.innerHTML = '';
+  shoppingList.innerHTM
+  L = '';
 
   shoppingItems.forEach((item, index) => {
     const li = document.createElement('li');
     li.className = 'todo-item';
-    if (item.completed) {
+    if(item.completed) {
       li.classList.add('completed');
     }
 
@@ -26,7 +27,7 @@ function renderShoppingList() {
 
     const priceSpan = document.createElement('span');
     priceSpan.className = 'price';
-    // 가격을 모르면 입력 안할 수 있게 해두려고 합니다. -> 삼항연산자 사용
+    // 가격을 모르면 입력 안할 수 있게 해두려고 합니다. - 삼항연산자 사용
     priceSpan.textContent = item.price ? `${item.price} 원` : '';
 
     const deleteBtn = document.createElement('button');
@@ -40,10 +41,10 @@ function renderShoppingList() {
 
     shoppingList.appendChild(li);
 
-    checkbox.addEventListener('change',() => {
+    checkbox.addEventListener('change', () => {
       shoppingItems[index].completed = checkbox.checked;
       li.classList.toggle('completed', checkbox.checked);
-      saveShoppingItems();  // 추가 버튼 눌렀을 때도 쓸거라서 정의 전에 호출
+      saveShoppingItems();// 추가 버튼 눌렀을 때도 쓸거라서 정의 전에 호출
     });
 
     deleteBtn.addEventListener('click', () => {
@@ -51,7 +52,7 @@ function renderShoppingList() {
       saveShoppingItems();
       renderShoppingList(); // 삭제 버튼을 눌렀을 때 renderShoppingList 내에서 다시 renderShoppingList를 호출하게끔 작성 -> 재귀용법
     });
-  });
+  })
 }
 
 // 저장
@@ -63,16 +64,16 @@ function addShoppingItem() {
   const itemText = itemInput.value.trim();
   const itemPrice = priceInput.value.trim();
 
-  if (itemText === ''){
-    alert('구매할 물품을 입력해주세요 !');
+  if (itemText === '') {
+    alert('구매할 물품을 입력해주세요 ! 😭');
     return;
   }
 
   const newShoppingItems = {
-    text : itemText,
-    price : itemPrice,
-    completed : false,
-  }
+    text: itemText,
+    price: itemPrice,
+    completed: false,
+  };
 
   shoppingItems.push(newShoppingItems);
 
@@ -86,22 +87,20 @@ function addShoppingItem() {
 addBtn.addEventListener('click', addShoppingItem);
 
 itemInput.addEventListener('keydown', (event) => {
-  if (event.key === 'Enter') {
-    addShoppingItem();    // input 태그에 Enter키 입력을 감지하면 addTodo(); 함수를 호출할 것.
+  if(event.key === 'Enter') {
+    addShoppingItem();  // input태그에 Enter키 입력을 감지하면 addTodo(); 함수를 호출할 것.
   }
 });
 
 priceInput.addEventListener('keydown', (event) => {
-  if (event.key === 'Enter') {
-    addShoppingItem();    
+  if(event.key === 'Enter') {
+    addShoppingItem();  // input태그에 Enter키 입력을 감지하면 addTodo(); 함수를 호출할 것.
   }
 });
-
-window.onload = renderShoppingList();
-
+window.onload = renderShoppingList;
 /*
   Scanner scanner = new Scanner(System.in);
-  sout("이름을 입력하세요 >>> ");
+  sout("이름을 입력하세요 >>> ")
   String name = scanner.nextLine();
   sout(name);
 

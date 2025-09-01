@@ -1,12 +1,12 @@
 @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;700&display=swap');
 
-:root {
+:root{
   --primary-color : #2c3e50;
   --secondary-color : #3498db;
   --background-color : #ecf0f1;
   --light-gray : #bdc3c7;
   --completed-color : #95a5a6;
-  --font-family: 'Noto Sans KR', sans-serif;
+  --font-family : 'Noto Sans KR', 'sans-sherif';
 }
 
 body {
@@ -20,7 +20,7 @@ body {
   color: var(--primary-color);
 }
 
-.todo-container {
+.login-container{
   background: #ffffFF;
   padding: 2.5rem;
   border-radius: 15px;
@@ -38,6 +38,7 @@ h1 {
 
 .input-group {
   display: flex;
+  flex-direction: column;
   gap: 10px;
   margin-bottom: 2rem;
 }
@@ -59,7 +60,7 @@ h1 {
 .input-group button {
   padding: 15px 20px;
   background-color: var(--secondary-color);
-  color: #ffffff;
+  color: #ffffFF;
   border: none;
   border-radius: 8px;
   cursor: pointer;
@@ -76,65 +77,8 @@ h1 {
   transform: scale(0.98);
 }
 
-.todo-list {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-}
-
-.todo-item {
-  display: flex;
-  align-items: center;
-  padding: 15px;
-  background: #f7f9fa;
-  border-radius: 8px;
-  margin-bottom: 10px;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-.todo-item:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
-}
-
-/* .js에서 38 번 라인과 연결됩니다. */
-.todo-item.completed {
-  background-color: #e8eaed;
-}
-
-/* li 태그의 background 컬러 말고, 그 자식인 span 태그 부분에 속성 추가 */ 
-.todo-item.completed .todo-text {
-  text-decoration: line-through;
-  color: var(--completed-color);
-}
-
-.todo-item input[type="checkbox"] {
-  margin-right: 15px;
-  cursor: pointer;
-  width: 20px;
-  height: 20px;
-}
-
-.todo-text {
-  flex-grow: 0.5;
-  font-size: 1.1rem;
-}
-
-.todo-item .delete-btn {
-  background: none;
-  border: none;
-  color: var(--light-gray);
-  font-size: 1.2rem;
-  cursor: pointer;
-  transition: color 0.3s;
-}
-
-.todo-item .delete-btn:hover {
-  color: #e74c3c;
-}
-
 @media (max-width: 600px) {
-  .todo-container {
+  .todo-container{
     padding: 1.5rem;
     border-radius: 0;
     min-height: 100vh;
