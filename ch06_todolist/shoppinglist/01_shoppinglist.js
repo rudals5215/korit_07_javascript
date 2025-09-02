@@ -7,8 +7,7 @@ const shoppingList = document.getElementById('shopping-list');
 const shoppingItems = JSON.parse(localStorage.getItem('shopping-items')) || [];
 
 function renderShoppingList() {
-  shoppingList.innerHTM
-  L = '';
+  shoppingList.innerHTML = '';
 
   shoppingItems.forEach((item, index) => {
     const li = document.createElement('li');

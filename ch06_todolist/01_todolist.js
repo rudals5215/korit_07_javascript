@@ -16,7 +16,7 @@ console.log(todos);   // JS 객체가 아니라 배열이라는 점에 주목할
 function renderTodos() {
   // 기존 todo List를 초기화 -> 추가했을 때 누적 안되게
   // 여러분들은 todoList =/= todos
-  todoList.innerHTML= '';
+  todos.innerHTML= '';
 
   // todos 배열을 반복 돌려서 목록을 생성
   todos.forEach((todo, index) => {
